@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Random Word</title>
+</head>
+<body>
+	<div class='wrapper'>
+		<div class='counter'>
+			<p> attempt #{{request.session.count}}!</p>
+		</div>
+		<div class='word'>
+			<p>{{randomword}}</p>
+		</div>
+		<form action='/' method="post">
+			{% csrf_token %}
+			<input type="submit" name="submit" value="Generate">
+		</form>
+		<form action='/reset/' method="post">
+			{% csrf_token %}
+			<input type="submit" name="submit" value="reset">
+		</form>
+	</div>
+
+	
+	
+	
+
+</body>
+</html>
