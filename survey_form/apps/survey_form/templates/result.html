@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Submitted Information</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+	<link rel="stylesheet" href="/css/shards.min.css">
+</head>
+<body>
+	<p>You've submitted a survey {{ request.session.count }} times!</p>
+	<h2>Submitted Information</h2>
+	<p>Name: 				{{ request.session.name }}</p>
+	<p>Dojo Location: 		{{ request.session.location }}</p>
+	<p>Favorite Language:	{{ request.session.language }}</p>
+	<p>Comment:				{{ request.session.comment }}</p>
+	<br><br><br><br>
+	<form action="/" method="post">
+		{% csrf_token %}
+		<input type="submit" name="submit" value="Go back">
+	</form>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Take Our survey!</title>
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+		<link rel="stylesheet" href="/css/shards.min.css">
+		<style type="text/css">
+	 	.container{
+	 		width: 250px;
+
+	 	}
+	 </style>
+</head>
+<body>
+	<div class="container">
+		<form action='/surveys/process/' method="post">
+			{% csrf_token %}
+			Name: <input type="text" name="name" placeholder="Your Name">
+			<!-- Dojo Location: <input type="text" name="text" placeholder="Dojo Location"> -->
+				
+			<select name="location">
+					<option value="" disabled selected>Dojo Location</option>
+					<option>Seattle, WA</option>
+					<option>Los Angeles, CA</option>
+					<option>Washington DC</option>
+					<option>Silicon Valley, CA</option>
+				</select>
+			<!-- Favorite Language: <input type="text" name="text" placeholder="Favorite Language"> -->
+			<select name="language">
+				<option name="" disabled selected>Favorite Language</option>
+				<option>Javascript</option>
+				<option>Python</option>
+				<option>C#</option>
+				<option>Java</option>
+				<option>Ruby</option>
+				<option>iOS</option>
+			</select>
+			Comment: <textarea name="comment" rows="5" cols="25" placeholder="Comment Here"></textarea>
+			<input type="submit" name="submit">
+		</form>
+	</div>
+</body>
+</html>
