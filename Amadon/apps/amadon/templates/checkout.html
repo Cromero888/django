@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Amadon Checkout</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<style type="text/css">
+		.wrapper{
+			margin: 10px;
+			width: 900px;
+		}
+	</style>
+</head>
+<body>
+	<div class='wrapper'>
+		<h2>Thank you for your business!</h2>
+		<p>We charged your credit card for ${{request.session.amount}}</p><br>
+		<p>You have ordered {{request.session.totalquantity}} so far and spent ${{request.session.totalamount}} with Amadon.com</p>
+		<br>
+		<a href="/amadon/">Go back</a>
+	</div>
+
+</body>
+</html>

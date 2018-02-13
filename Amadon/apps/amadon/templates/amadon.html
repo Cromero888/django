@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Shop on Amadon</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<style type="text/css">
+		.wrapper{
+			margin: 10px;
+			width: 900px;
+		}
+	</style>
+
+</head>
+<body>
+	<div class='wrapper'>
+		<h1>Amadon Store!</h1>
+		<table class='table'>
+			<tr>
+				<th>Item</th>
+				<th>Price</th>
+				<th>Actions</th>
+			</tr>
+			<tr>
+				<td>Dojo T-Shirt</td>
+				<td>$20</td>
+				<td><form action='/buy/' method='post'>
+					{%csrf_token%}
+					<select name='quantity'>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+					</select>
+					<input type='hidden' name='product' value='1'>
+					<input type="submit" name="shirt" value="Buy!">
+				</form></td>
+			</tr>
+			<tr>
+				<td>Dojo Sweater</td>
+				<td>$30</td>
+				<td><form action='/buy/' method='post'>
+					{%csrf_token%}
+					<select name='quantity'>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+					</select>
+					<input type='hidden' name='product' value='2'>
+					<input type="submit" name="sweater" value="Buy!">
+				</form></td>
+			<tr>
+				<td>Dojo Mug</td>
+				<td>$5</td>
+				<td><form action='/buy/' method='post'>
+					{%csrf_token%}
+					<select name='quantity'>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+					</select>
+					<input type='hidden' name='product' value='3'>
+					<input type="submit" name="mug" value="Buy!">
+				</form></td>
+			</tr>
+			<tr>
+				<td>Algorithm Book</td>
+				<td>$50</td>
+				<td><form action='/buy/' method='post'>
+					{%csrf_token%}
+					<select name='quantity'>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+					</select>
+					<input type='hidden' name='product' value='4'>
+					<input type="submit" name="book" value="Buy!">
+				</form></td>
+			</tr>
+		</table>
+		<a href="/reset/">Okay, but seriously, reset</a>
+	</div>
+
+</body>
+</html>
