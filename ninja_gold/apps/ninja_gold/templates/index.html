@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Get Some Gold!</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<style type="text/css">
+		.wrapper{
+			width: 1100px;
+			background-color: darkblue;
+			color: white;
+			margin: 10px;
+			padding: 10px;
+		}
+		.job{
+			display:inline-block;
+			margin-left: 60px;
+			margin-right: 60px;
+			border: solid 2px;
+			padding: 3px;
+			border-color: white;
+		}
+		.log{
+			background-color: white;
+			color: black;
+			width: 1080px;
+			height: 500px;
+			display: center;
+			margin-top: 50px;
+		}
+		a{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<div class='wrapper'>
+		<p>Your Gold: {{request.session.total}} GP</p>
+		<div class='job'>
+			<h3>Farm</h3>
+			<p>(Earns 10-20 GP)</p>
+			<form action="/find/" method="post">
+				{%csrf_token%}
+				<input type="hidden" name="thing" value="farm">
+				<input type="submit" name="submit" value='Find Gold'>
+			</form>
+		</div>
+		<div class='job'>
+			<h3>Cave</h3>
+			<p>(Earns 5-10 GP)</p>
+			<form action='/find/' method="post">
+				{%csrf_token%}
+				<input type="hidden" name="thing" value='cave'>
+				<input type="submit" name="submit" value='Find Gold'>
+			</form>
+		</div>
+		<div class='job'>
+			<h3>House</h3>
+			<p>(Earns 2-5 GP)</p>
+			<form action="/find/" method="post">
+				{%csrf_token%}
+				<input type="hidden" name="thing" value='house'>
+				<input type="submit" name="submit" value='Find Gold'>
+			</form>
+		</div>
+		<div class='job'>
+			<h3>Casino</h3>
+			<p>(Earns/takes 0-50 GP)</p>
+			<form action="/find/" method="post">
+				{%csrf_token%}
+				<input type="hidden" name="thing" value='casino'>
+				<input type="submit" name="submit" value='Find Gold'>
+			</form>
+		</div>
+		<div class='log'>
+			{% for entry in request.session.log %}
+			<p method='post' style={{entry.color}}>{{entry.str1}} {{entry.thing}} {{entry.str2}} {{entry.job}} {{entry.str3}} {{entry.now}}</p>
+			{%endfor%}
+		</div>
+		<a href="/clear/">Reset</a>
+
+	</div>
+
+</body>
+</html>
