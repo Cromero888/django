@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Semi-Restful Users</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<style type="text/css">
+		.wrapper{
+			width:900px;
+		}
+		form{
+			width:250px;
+			margin:10px;
+		}
+		input{
+			display: inline-block;
+			margin-bottom: 8px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Add New User</h1>
+	{% if messages %}
+	<ul class='messages'>
+	{% for message in messages%}
+		<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+	{%endfor%}
+	{%endif%}
+	</ul>
+	<form action="/adduser/" method="post">
+		{%csrf_token%}
+		<input type="text" name="first_name" placeholder="First Name">
+		<input type="text" name="last_name" placeholder="Last Name">
+		<input type="text" name="email" placeholder="Email">
+		<input type="submit" name="submit" value="Create">
+	</form>
+	<a href="/users/">Go back</a>
+
+</body>
+</html>

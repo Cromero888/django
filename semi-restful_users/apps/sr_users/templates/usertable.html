@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<style type="text/css">
+		.wrapper{
+			width:900px;
+		}
+	</style>
+</head>
+<body>
+	<div class='wrapper'>
+		<table class='table'>
+			<tr>
+				<th>id</th>
+				<th>Full Name</th>
+				<th>Email</th>
+				<th>Created at</th>
+				<th>Actions</th>
+			</tr>
+			{% for entry in users %}
+
+			<tr>
+				<td>{{entry.id}}</td>
+				<td><a href="/show/">{{entry.first_name}} {{entry.last_name}}</a></td>
+				<td>{{entry.email}}</td>
+				<td>{{entry.created_at}}</td>
+				<td><a href="/show/{{entry.id}}">Show</a> <a href="/edit/{{entry.id}}">Edit</a> <a href="/deleteuser/{{entry.id}}">Delete</a></td>
+			</tr>
+			{%endfor%}
+		</table>
+		<a href="/add/">Add New User</a>
+	</div>
+</body>
+</html>
