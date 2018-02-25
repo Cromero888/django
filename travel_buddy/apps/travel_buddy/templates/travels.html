@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Travel Dashboard</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<style type="text/css">
+		.wrapper{
+			width:900px;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<h3>Hello {{first_name}}!</h3>
+		<a href="/logout/">Logout</a><br>
+		<p>Your Trip Schedules</p>
+		<table class='table'>
+			<tr>
+				<th>Destination</th>
+				<th>Travel Start Date</th>
+				<th>Travel End Date</th>
+				<th>Plan</th>
+			</tr>
+			{% for entry in destination %}
+			<tr>
+				<td><a href="destination/{{entry.id}}">{{entry.destination}}</a></td>
+				<td>{{entry.datefrom}}</td>
+				<td>{{entry.dateto}}</td>
+				<td>{{entry.desc}}</td>
+			{%endfor%}	
+		</table>
+		<p>Other Users' Travel Plans</p>
+		<table class='table'>
+			<tr>
+				<th>Name</th>
+				<th>Destination</th>
+				<th>Travel Start Date</th>
+				<th>Travel End Date</th>
+				<th>Do you want to Join?</th>
+			</tr>
+			{% for entry in destinations %}
+			<tr>
+				<td>{{entry.name}}</td>
+				<td>{{entry.destination}}</td>
+				<td>{{entry.start_date}}</td>
+				<td>{{entry.end_date}}</td>
+				<td><a href="join/">Join</a></td>
+			</tr>
+			{%endfor%}
+		</table>
+		<a href="add/">Add a Travel Plan</a>
+	</div>
+</body>
+</html>

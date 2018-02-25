@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add Plan</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<style type="text/css">
+		.wrapper{
+			width:900px;
+		}
+	</style>
+</head>
+<body>
+	<div class='wrapper'>
+		<p><a href="/travels/">Home</a> <a href="/logout/">Logout</a></p>
+		<h2>Add a Trip</h2>
+		<form action="/travels/addprocess/" method="post">
+			{%csrf_token%}
+			<input type="text" name="destination" placeholder="Destination">
+			<input type="text" name="desc" placeholder="Description">
+			<input type="date" name="datefrom">
+			<input type="date" name="dateto">
+			<input type="submit" name="submit" value="Add">
+		</form>
+	</div>
+
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{destination.destination}}</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<style type="text/css">
+		.wrapper{
+			width:900px;
+		}
+	</style>
+</head>
+<body>
+	<p><a href="/travels/">Home</a> <a href="/logout/">Logout</a></p>
+	<h2>{{destination.destination}}</h2>
+	<p>Planned By: {{destination.user_id}}</p>
+	<p>Description: {{destination.desc}}</p>
+	<p>Travel Date From: {{destination.datefrom}}</p>
+	<p>Travel Date: {{destination.dateto}}</p>
+	<br><br><br>
+	<h3>Other User's joining the Trip</h3>
+	{%for entry in Trips%}
+	<p>{{entry.first_name}} {{entry.last_name}}</p>
+	{%endfor%}
+
+
+</body>
+</html>
