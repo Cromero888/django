@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<style type="text/css">
+		.wrapper{
+			width:900px;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<a href="/logout/">Logout</a>
+		<h3>Hello {{me}}</h3>
+		<p>Here is the list of your friends:</p><br>
+
+		<table class="table">
+			<tr>
+				<th>Alias</th>
+				<th>Action</th>
+			</tr>
+			{% for entry in friends %}
+			<tr>
+				<td><a href="user/{{entry.friend1.id}}/">{{entry.friend1.first_name}}</a> and <a href="user/{{entry.friend2.id}}/">{{entry.friend2.first_name}}</a></td>
+				<td><a href="remove/{{entry.id}}">Remove as Friend</a></td>
+			</tr>
+			{% empty %}
+			<h1>no friends yet</h1>
+			{%endfor%}
+
+		</table><br><br>
+		<h4>Other Users not on your friend's list:</h4><br>
+		<table class="table">
+			<tr>
+				<th>Alias</th>
+				<th>Action</th>
+			</tr>
+			{%for entry in users%}
+			<tr>
+				<td><a href="user/{{entry.id}}/">{{entry.first_name}}</a></td>
+				<td><a href="add/{{entry.id}}/">Add as Friend</a></td>
+			{%endfor%}
+		</table>
+		
+	</div>
+</body>
+</html>
